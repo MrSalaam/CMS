@@ -105,7 +105,7 @@ class Toaster {
     this.toasts.push(toastWithId);
     this.notify();
 
-    // Auto remove after 5 seconds
+    
     setTimeout(() => {
       this.remove(id);
     }, 5000);
