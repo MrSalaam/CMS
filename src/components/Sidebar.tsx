@@ -12,7 +12,7 @@ import {
   
 } from 'lucide-react';
 
-// Mock auth context for demo
+// Mock auth context
 const useAuth = () => ({
   user: { name: 'Admin User', email: 'admin@cms.com', role: 'Admin' }
 });
@@ -71,7 +71,7 @@ export const Sidebar = ({ activeTab, onTabChange }: { activeTab: string; onTabCh
       position="relative"
       transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
     >
-      {/* Collapse/Expand Button */}
+      
       <IconButton
         aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         position="absolute"
@@ -182,7 +182,7 @@ export const Sidebar = ({ activeTab, onTabChange }: { activeTab: string; onTabCh
                         </>
                       )}
                     </HStack>
-                    {/* Active indicator */}
+                   
                     {isActive && (
                       <Box
                         position="absolute"
@@ -224,13 +224,6 @@ export const Sidebar = ({ activeTab, onTabChange }: { activeTab: string; onTabCh
           </VStack>
         </Box>
 
-       
-
-        
-
-     
-
-        {/* Bottom Actions */}
         <Box mt="auto" pt={4}>
           {!isCollapsed && <Separator mb={4} />}
           <VStack gap={1.5} align="stretch">
@@ -279,7 +272,7 @@ export const Sidebar = ({ activeTab, onTabChange }: { activeTab: string; onTabCh
             </Button>
           </VStack>
 
-          {/* User Role Indicator */}
+          
           {!isCollapsed && (
             <Box 
               mt={4} 
