@@ -223,7 +223,7 @@ export const Dashboard: React.FC = () => {
           <Container maxW="1400px" px={{ base: 0, md: 4 }}>
             {activeTab === 'overview' && (
               <VStack gap={{ base: 6, md: 8 }} align="stretch">
-                {/* Header */}
+                
                 <Box>
                   <Text 
                     fontSize={{ base: 'xl', md: '2xl', lg: '3xl' }} 
@@ -269,7 +269,7 @@ export const Dashboard: React.FC = () => {
                   </Box>
                 </SimpleGrid>
 
-                {/* Recent Posts Preview */}
+                
                 <Card.Root bg="white" borderRadius="xl" shadow="sm">
                   <Card.Body p={6}>
                     <Flex align="center" justify="space-between" mb={4}>
