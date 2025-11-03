@@ -55,7 +55,7 @@ export const PostsList: React.FC = () => {
   const { data: posts, isLoading } = useData(api.getPosts);
   const [localPosts, setLocalPosts] = React.useState<Post[]>([]);
 
-  // Initialize local posts once
+  
   React.useEffect(() => {
     if (posts && localPosts.length === 0) {
       setLocalPosts(posts);
@@ -169,11 +169,11 @@ export const PostsList: React.FC = () => {
   });
 
 
-  // Check if user is logged in
+  
   if (!user) {
     return (
       <Flex align="center" justify="center" minH="500px" direction="column" gap={4}>
-        <Text fontSize="48px" color="gray">🔒</Text>
+        <Text fontSize="48px" color="gray"></Text>
         <Text fontSize="lg" color="gray.600">
           You need to be logged in to access this page
         </Text>
@@ -181,7 +181,7 @@ export const PostsList: React.FC = () => {
     );
   }
 
-  // All roles can view the page, no blocking here
+  
 
   return (
     <Box>
@@ -202,7 +202,7 @@ export const PostsList: React.FC = () => {
           </Text>
         </Box>
         
-        {/* Only admin and editor can create posts */}
+       
         {(user.role === 'admin' || user.role === 'editor') && (
           <Button
             bg="black"
@@ -221,7 +221,7 @@ export const PostsList: React.FC = () => {
         )}
       </Flex>
 
-      {/* Filters and Search - All users can search and filter */}
+      
       <Card.Root mb={6} bg="white" borderRadius="xl" shadow="sm">
         <Card.Body p={6}>
           <Flex gap={4} direction={{ base: 'column', lg: 'row' }}>
@@ -243,7 +243,7 @@ export const PostsList: React.FC = () => {
               </Box>
             </Box>
 
-            {/* Status Filter */}
+           
             <Box w={{ base: 'full', lg: '200px' }}>
               <Select.Root
                 collection={statusItems}
@@ -267,7 +267,7 @@ export const PostsList: React.FC = () => {
               </Select.Root>
             </Box>
 
-            {/* Category Filter */}
+            
             <Box w={{ base: 'full', lg: '200px' }}>
               <Select.Root
                 collection={categoryItems}
@@ -294,7 +294,7 @@ export const PostsList: React.FC = () => {
         </Card.Body>
       </Card.Root>
 
-      {/* Posts Table */}
+     
       {isLoading ? (
         <Flex justify="center" align="center" minH="400px">
           <Spinner size="xl" color="black"  />
@@ -320,7 +320,7 @@ export const PostsList: React.FC = () => {
                   <Table.ColumnHeader fontWeight="700" color="gray.700"  py={4} px={6}>
                     Last Updated
                   </Table.ColumnHeader>
-                  {/* Only show Actions column for admin and editor */}
+              
                   {(user.role === 'admin' || user.role === 'editor') && (
                     <Table.ColumnHeader fontWeight="700" color="gray.700" textAlign="center">
                       Actions
@@ -345,7 +345,7 @@ export const PostsList: React.FC = () => {
                       <Text color="gray.700">{post.authorId}</Text>
                     </Table.Cell>
                     <Table.Cell px={6}>
-                      {/* Admin and Editor can change status, Viewer sees read-only badge */}
+                     
                       {(user.role === 'admin' || user.role === 'editor') ? (
                         <Select.Root
                           collection={postStatusItems}
@@ -403,7 +403,7 @@ export const PostsList: React.FC = () => {
                         {new Date(post.updatedAt).toLocaleDateString()}
                       </Text>
                     </Table.Cell>
-                    {/* Only show actions for admin and editor */}
+                   
                     {(user.role === 'admin' || user.role === 'editor') && (
                       <Table.Cell textAlign="right">
                         <HStack gap={4} justify="flex-end">
@@ -432,7 +432,7 @@ export const PostsList: React.FC = () => {
                               </IconButton>
                             </MenuTrigger>
                             <MenuContent minW="180px" borderRadius="lg" p={1} gap={1}>
-                              {/* Edit option for admin and editor */}
+                              
                               <MenuItem
                                 value="edit"
                                 borderRadius="md"
@@ -445,7 +445,7 @@ export const PostsList: React.FC = () => {
                                 </HStack>
                               </MenuItem>
                               
-                              {/* Delete option ONLY for admin */}
+                            
                               {user.role === 'admin' && (
                                 <MenuItem
                                   value="delete"
@@ -471,7 +471,7 @@ export const PostsList: React.FC = () => {
             </Table.Root>
           </Card.Root>
 
-          {/* Results Summary */}
+          
           {filteredPosts && filteredPosts.length > 0 && (
             <Flex justify="space-between" align="center" mt={4} px={2}>
               <Text fontSize="sm" color="gray.600">
@@ -485,7 +485,7 @@ export const PostsList: React.FC = () => {
         </Box>
       )}
 
-      {/* Add Post Dialog */}
+  
       <Dialog.Root open={isAddPostOpen} onOpenChange={(e) => setIsAddPostOpen(e.open)}>
         <Dialog.Backdrop bg="blackAlpha.600" backdropFilter="blur(4px)" />
         <Dialog.Positioner style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
@@ -584,7 +584,7 @@ export const PostsList: React.FC = () => {
         </Dialog.Positioner>
       </Dialog.Root>
 
-      {/* Delete Confirmation Dialog */}
+      
       <Dialog.Root open={isDeleteDialogOpen} onOpenChange={(e) => setIsDeleteDialogOpen(e.open)}>
         <Dialog.Backdrop bg="blackAlpha.600" backdropFilter="blur(4px)" />
         <Dialog.Positioner style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
@@ -629,7 +629,7 @@ export const PostsList: React.FC = () => {
         </Dialog.Positioner>
       </Dialog.Root>
 
-      {/* Edit Post Dialog */}
+     
       <Dialog.Root open={isEditDialogOpen} onOpenChange={(e) => setIsEditDialogOpen(e.open)}>
         <Dialog.Backdrop bg="blackAlpha.600" backdropFilter="blur(4px)" />
         <Dialog.Positioner  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
