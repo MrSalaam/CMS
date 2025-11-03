@@ -4,7 +4,7 @@ import { Lock, Mail, Eye, EyeOff, ShieldCheck, AlertCircle } from 'lucide-react'
 import { useMutation } from '@tanstack/react-query';
 import { api } from '../../lib/api';  
 
-// Mock API call - now uses your existing mock data instead of fetch
+// Mock API call 
 const loginAPI = async (credentials: { email: string; password: string }) => {
   
   await new Promise(resolve => setTimeout(resolve, 500));
@@ -22,7 +22,6 @@ export const LoginPage: React.FC<{ onLogin: (email: string) => void }> = ({ onLo
   const [password, setPassword] = React.useState('123');
   const [showPassword, setShowPassword] = React.useState(false);
 
-  // React Query mutation for login
   const loginMutation = useMutation({
     mutationFn: loginAPI,
     onSuccess: () => {
@@ -94,7 +93,6 @@ export const LoginPage: React.FC<{ onLogin: (email: string) => void }> = ({ onLo
             </Box>
 
             <VStack gap={5} w="full">
-              {/* Error Message Display */}
               {loginMutation.isError && (
                 <Box
                   w="full"
