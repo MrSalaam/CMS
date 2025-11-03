@@ -33,7 +33,7 @@ export const MobileRestriction: React.FC = () => {
             </Box>
           </Flex>
 
-          {/* Content */}
+          
           <VStack gap={4}>
             <Text 
               fontSize={{ base: '3xl', md: '4xl' }} 
@@ -60,7 +60,7 @@ export const MobileRestriction: React.FC = () => {
             </Text>
           </VStack>
 
-          {/* Device Info */}
+          
           <Box 
             bg="whiteAlpha.200" 
             borderRadius="xl" 
