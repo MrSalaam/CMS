@@ -40,7 +40,7 @@ import {
 import type { User } from '../../types';
 import { api } from '../../lib/api';
 
-// Mock hooks and API for demo
+
 const useAuth = () => ({
   user: { name: 'John Doe', email: 'john@example.com', role: 'admin' }
 });
@@ -127,7 +127,7 @@ export const UsersList = () => {
       return;
     }
 
-    // Email validation
+    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(newUser.email)) {
       alert('Please enter a valid email address');
@@ -163,7 +163,7 @@ export const UsersList = () => {
     if (userToDelete) {
       console.log('Deleting user:', userToDelete);
       
-      // Remove user from local state
+      
       setLocalUsers(prevUsers => prevUsers.filter(u => u.id !== userToDelete));
       setIsDeleteDialogOpen(false);
       setUserToDelete(null);
@@ -174,7 +174,7 @@ export const UsersList = () => {
     if (userToEdit) {
       console.log('Saving user:', userToEdit);
       
-      // Update user in local state
+     
       setLocalUsers(prevUsers => prevUsers.map(u => 
         u.id === userToEdit.id ? { ...userToEdit } : u
       ));
@@ -269,7 +269,7 @@ export const UsersList = () => {
         </HStack>
       </Flex>
 
-      {/* Filters and Search */}
+      
       <Card.Root mb={6} bg="white" borderRadius="xl" shadow="sm">
         <Card.Body p={4}>
           <Flex gap={3} direction={{ base: 'column', md: 'row' }}>
@@ -333,7 +333,7 @@ export const UsersList = () => {
         </Card.Body>
       </Card.Root>
 
-      {/* Users Table */}
+     
       {isLoading ? (
         <Flex justify="center" align="center" minH="400px">
           <VStack gap={4}>
@@ -571,7 +571,7 @@ export const UsersList = () => {
             </Table.Root>
           </Card.Root>
 
-          {/* Results Summary */}
+          
           {filteredUsers && filteredUsers.length > 0 && (
             <Flex justify="space-between" align="center" mt={4} px={2}>
               <Text fontSize="sm" color="gray.600">
@@ -585,7 +585,7 @@ export const UsersList = () => {
         </Box>
       )}
 
-      {/* Add User Dialog */}
+      
       <Dialog.Root open={isAddUserOpen} onOpenChange={(e) => setIsAddUserOpen(e.open)}>
         <Dialog.Backdrop bg="blackAlpha.600" backdropFilter="blur(4px)" />
         <Dialog.Positioner style={{
@@ -710,7 +710,7 @@ export const UsersList = () => {
         </Dialog.Positioner>
       </Dialog.Root>
 
-      {/* Delete Confirmation Dialog */}
+      
       <Dialog.Root open={isDeleteDialogOpen} onOpenChange={(e) => setIsDeleteDialogOpen(e.open)}>
         <Dialog.Backdrop bg="blackAlpha.600" backdropFilter="blur(4px)" />
         <Dialog.Positioner style={{
@@ -760,7 +760,7 @@ export const UsersList = () => {
         </Dialog.Positioner>
       </Dialog.Root>
 
-      {/* Edit User Dialog */}
+      
       <Dialog.Root open={isEditDialogOpen} onOpenChange={(e) => setIsEditDialogOpen(e.open)}>
         <Dialog.Backdrop bg="blackAlpha.600" backdropFilter="blur(4px)" />
         <Dialog.Positioner style={{
