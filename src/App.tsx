@@ -7,7 +7,7 @@ import { Dashboard } from './components/Dashboard';
 import { ErrorBoundary } from './ErrorBoundary';
 import { MobileRestriction } from './components/MobileRestriction';
 
-// Create a client
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
